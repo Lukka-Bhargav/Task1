@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+  }
+  
+  /* Full-width input fields */
+  /* input[type=text], input[type=password] {
+    width:auto;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  } */
+  
+  /* input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  } */
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit/register button */
+  
+  .registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    opacity: 0.9;
+  }
+  
+  .registerbtnUp {
+    background-color: #0d7ee9;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    opacity: 0.9;
+  }
+  
+  .registerbtnCan {
+    background-color: #c9a712;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    opacity: 0.9;
+  }
+  
+  .registerbtnDel {
+    background-color: #e40d0d;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    opacity: 0.9;
+  
+  }
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  
+  .fav h4 {
+    font-size: 40px;
+    color: #e40d0d;
+  }
+  
+  .friends-list li {
+    list-style: none;
+    font-size: 20px;
+  }
+  
+  .list {
+    background-color: lightgrey;
+    text-align: center;
+  }
+  
+  .friend-list {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+  }
+  .btn-ucd{
+    text-align: right;
+  }

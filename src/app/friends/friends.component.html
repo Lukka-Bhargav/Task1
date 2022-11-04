@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <nav id="nav">
+          <div class="border list">
+  
+            <h3>Create Friends List</h3>
+            <ul class="friends-list p-3">
+              <li> <input type="search" placeholder="Search.."></li>
+              <li *ngFor="let u of totalUsers;let i=index"
+                class="mt-5 d-flex justify-content-between friend-list margin: 9px;">
+                <a (click)="getUserDetails(i)"> {{u.firstName}}</a>
+                <div *ngIf="!u.fav" class="fav">
+                  <h4>&#9734;</h4>
+                </div>
+                <div *ngIf="u.fav" class="fav">
+                  <h4>&#9733;</h4>
+                </div>
+  
+              </li>
+  
+            </ul>
+            <input type="button" class="btn btn-primary" style="font-size: 20px;font-weight: bold;"
+              (click)="showAddFrom()" value="add">
+          </div>
+        </nav>
+      </div>
+      <div class="col-md-8" *ngIf="showAdd">
+  
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" style="background-color:rgba(241, 247, 246, 0.918);">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 text-right">
+                <div style="text-align:right">&nbsp;&nbsp;&nbsp;&nbsp;
+                  <div *ngIf="!favValue" (click)="changeFav()" class="fav">
+                    <h4>&#9734;</h4>
+                  </div>
+                  <div *ngIf="favValue" (click)="changeFav()" class="fav">
+                    <h4>&#9733;</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+  
+  
+                <label for="Firstname"></label>
+                <input type="text" placeholder="First Name" name="fname" id="fname" formControlName="firstName"
+                  class="form-control">
+              </div>
+              <div class="col-md-6">
+                <div class="formGroup">
+                  <label for="Lastname"></label>
+                  <input type="text" placeholder="Last Name" name="lname" id="lname" formControlName="lastName"
+                    class="form-control">
+                </div>
+              </div>
+              <div class="formGroup col-md-6 pt-3">
+                <label for="gender"><b>Gender :</b></label><br><br>
+                <input type="radio" name="gender" formControlName="gender" value="Male">
+                <label for="Male">Male</label>&nbsp;&nbsp;
+                <input type="radio" name="gender" formControlName="gender" value="Female">
+                <label for="female">Female</label><br><br>
+              </div>
+              <div class="formGroup col-md-6 pt-3">
+                <label for="Mstatus"><b>Maritial Status :</b></label><br><br>
+                <input type="radio" id="m" formControlName="mstatus" name="mstatus" value="Married">
+                <label for="married">
+                  <p>Married</p>
+                </label>&nbsp;&nbsp;
+                <input type="radio" id="u" formControlName="mstatus" name="mstatus" value="Unmarried">
+                <label for="Unmarried">Unmarried</label><br>
+              </div>
+              <h4><b>Enter Your Mobile Number(s)</b></h4>
+              <div class="formGroup mb-3" formArrayName="phoneNumbers"
+                *ngFor="let item of userPhoneGroups['controls']; let i = index;">
+  
+                <div [formGroupName]="i">
+                  <div class="row">
+                    <div class="col-md-5">
+                      <select class="form-control" formControlName="type">
+                        <option *ngFor="let t of phType" [value]="t">{{t}}</option>
+                      </select>
+                    </div>
+                    <div class="col-md-5">
+                      <input type="text" class="form-control" name="value" formControlName="value">
+                    </div>
+                    <div class="col-md-1">
+                      <input type="button" class="btn btn-primary" (click)="addPhoneNumber()" value="+">
+                    </div>
+                    <div class="col-md-1" *ngIf="i > 0">
+                      <input type="button" class="btn btn-primary" (click)="removePhoneNumber(i)" value="-">
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+              <div class="btn-ucd">
+                <button type="submit" class="registerbtn" *ngIf="!showUpdate">Create</button>
+                <button type="button" class="registerbtnUp" *ngIf="showUpdate" (click)="updateUser()">Update</button>
+                <button type="button" class="registerbtnCan" *ngIf="showUpdate" (click)="cancelForm()">Cancel</button>
+                <button type="button" class="registerbtnDel" *ngIf="showUpdate" (click)="deleteUser()">Delete</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
